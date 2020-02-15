@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/mobile.css"/>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="calContainer">
+        <form class="calForm" name="calculator">
+            <div class="displayDiv">
+                <p id="display" class="displayP" onkeypress="getKey();"></p>
+            </div>
+
+            <div class="grid-1-4">
+                <div class="grid-1 grid">
+                    <input id="buttonJS01" type="button" value="1" class="button01 calButton" onclick="getNumber1();" />
+                </div>
+                <div class="grid-2 grid">
+                    <input id="buttonJS02" type="button" value="2" class="button02 calButton" onclick="getNumber2();" />
+                </div>
+                <div class="grid-3 grid">
+                    <input id="buttonJS03" type="button" value="3" class="button03 calButton" onclick="getNumber3();" />
+                </div>
+                <div class="grid-4 grid">
+                    <input id="buttonJS04" type="button" value="+" class="button04 calButton" onclick="sumNumbers();" />
+                </div>
+            </div>
+
+            <div class="grid-5-8">
+                <div class="grid-5 grid">
+                    <input id="buttonJS05" type="button" value="4" class="button05 calButton" onclick="getNumber4();" />
+                </div>
+                <div class="grid-6 grid">
+                    <input id="buttonJS06" type="button" value="5" class="button06 calButton" onclick="getNumber5();" />
+                </div>
+                <div class="grid-7 grid">
+                    <input id="buttonJS07" type="button" value="6" class="button07 calButton" onclick="getNumber6();" />
+                </div>
+                <div class="grid-8 grid">
+                    <input id="buttonJS08" type="button" value="-" class="button08 calButton"
+                        onclick="subtractNumber();" />
+                </div>
+            </div>
+
+            <div class="grid-9-12">
+                <div class="grid-9 grid">
+                    <input id="buttonJS09" type="button" value="7" class="button09 calButton" onclick="getNumber7();" />
+                </div>
+                <div class="grid-10 grid">
+                    <input id="buttonJS10" type="button" value="8" class="button10 calButton" onclick="getNumber8();" />
+                </div>
+                <div class="grid-11 grid">
+                    <input id="buttonJS11" type="button" value="9" class="button11 calButton" onclick="getNumber9();" />
+                </div>
+                <div class="grid-12 grid">
+                    <input id="buttonJS12" type="button" value="x" class="button12 calButton"
+                        onclick="multiplyNumber();" />
+                </div>
+            </div>
+
+            <div class="grid-13-16">
+                <div class="grid-13 grid">
+                    <input id="buttonJS13" type="button" value="C" class="button13 calButton"
+                        onclick="clearDisplay();" />
+                </div>
+                <div class="grid-14 grid">
+                    <input id="buttonJS00" type="button" value="0" class="button00 calButton" onclick="getNumber0();" />
+                </div>
+                <div class="grid-15 grid">
+                    <input id="buttonJS15" type="button" value="=" class="button15 calButton" onclick="equal();" />
+                </div>
+                <div class="grid-16 grid">
+                    <input id="buttonJS16" type="button" value="/" class="button16 calButton"
+                        onclick="divideNumber();" />
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <script src="./js/animation.js"></script>
+    <script src="./js/calculator.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+
+</html>

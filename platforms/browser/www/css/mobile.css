@@ -1,0 +1,30 @@
+/* OPTIMIZATION FOR PHONES */
+
+/* GALAXY S8 */
+@media only screen and (min-width: 360px) and (max-width: 767px) and (min-height: 740px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .calForm {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        border: none;
+        margin-top: 50px;
+    }
+
+    .displayDiv {
+        border-radius: 0;
+        margin-top: 0;
+    }
+
+    .displayP {
+        margin-top: 15px;
+    }
+
+    .grid-1-4 {
+        margin-top: 50px;
+    }
+}
