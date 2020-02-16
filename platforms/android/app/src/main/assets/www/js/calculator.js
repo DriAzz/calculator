@@ -1,245 +1,65 @@
-var calcData = [];
-var sumArray = [];
+var displayData = [];
+var globalMath = [];
 
-// Calculator Keyboard Controls
-window.addEventListener("keydown", function (event) {
+var buttonAdd = document.getElementById("buttonJS04").value;
+var buttonSub = document.getElementById("buttonJS08").value;
+var buttonMul = document.getElementById("buttonJS12").value;
+var buttonDiv = document.getElementById("buttonJS16").value;
 
-    /* KEYBOARD */
-
-    if (event.keyCode == "8") {
-        calcData.pop();
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "49") {
-        calcData.push(1);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "50") {
-        calcData.push(2);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "51") {
-        calcData.push(3);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "52") {
-        calcData.push(4);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "53") {
-        calcData.push(5);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "54") {
-        calcData.push(6);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "55") {
-        calcData.push(7);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "56") {
-        calcData.push(8);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "57") {
-        calcData.push(9);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "48") {
-        calcData.push(0);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    /* NUMPAD */
-
-    if (event.keyCode == "35") {
-        calcData.push(1);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "40") {
-        calcData.push(2);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "34") {
-        calcData.push(3);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "37") {
-        calcData.push(4);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "12") {
-        calcData.push(5);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "39") {
-        calcData.push(6);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "36") {
-        calcData.push(7);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "38") {
-        calcData.push(8);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "33") {
-        calcData.push(9);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-
-    if (event.keyCode == "45") {
-        calcData.push(0);
-        console.log(calcData);
-        document.getElementById("display").innerHTML = calcData.join("");
-    }
-});
-
-function getNumber1() {
-    calcData.push(1);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber2() {
-    calcData.push(2);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber3() {
-    calcData.push(3);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber4() {
-    calcData.push(4);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber5() {
-    calcData.push(5);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber6() {
-    calcData.push(6);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber7() {
-    calcData.push(7);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber8() {
-    calcData.push(8);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber9() {
-    calcData.push(9);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-function getNumber0() {
-    calcData.push(0);
-    console.log(calcData);
-    document.getElementById("display").innerHTML = calcData.join("");
-}
-
-
-
-
-
-
-
+const sumReducer = (accumulator, currentValue) => accumulator + currentValue;
+const subReducer = (accumulator, currentValue) => accumulator - currentValue;
+const multReducer = (accumulator, currentValue) => accumulator * currentValue;
+const divReducer = (accumulator, currentValue) => accumulator / currentValue;
 
 
 function clearDisplay() {
-    console.log(calcData);
-    if (calcData != "") {
-        calcData = [];
-        document.getElementById("display").innerHTML = calcData;
-        console.log(calcData);
+    var checkDisplay = document.getElementById("display").value;
+    if (checkDisplay != "") {
+        displayData = [];
+        globalMath = [];
+        document.getElementById("display").innerHTML = displayData;
+        console.log("Cleared displayData: " + displayData);
     } else {
-        alert("Display is empty!");
+        alert("Screen is empty!");
     }
 }
 
 function sumNumbers() {
-    var getCurrentValue = document.getElementById("display").value = calcData.join("");
-    console.log(getCurrentValue);
+    var getNewValue = document.getElementById("display").value = displayData.join("");
+    console.log("New Value: " + getNewValue + " | globalMath: " + globalMath + " | displayData: " + displayData);
 
-    sumArray.push(getCurrentValue);
-    sumArray.push("+");
-    console.log(sumArray);
+    if (displayData != "") {
+        displayData = [];
+        globalMath.push(parseInt(getNewValue));
+        console.log("Cleared displayData: " + displayData + " | Added to globalMath: " + globalMath);
+    }
 
-    calcData = [];
-    document.getElementById("display").innerHTML = calcData;
-}
-
-function subNumbers() {
-
-}
-
-function multiNumbers() {
-
-}
-
-function divNumbers() {
-
+    if (globalMath != "") {
+        var sumAnswer = globalMath.reduce(sumReducer);
+        console.log("This is the sum: " + sumAnswer); //Getting the sum;
+        document.getElementById("display").innerHTML = sumAnswer;
+    }
 }
 
 function equal() {
-    var getFinalNumber = document.getElementById("display").value = calcData.join("");
-    sumArray.push(getFinalNumber);
-    console.log(sumArray);
+    var getFinalNumber = document.getElementById("display").value = displayData.join("");  //const or let will fix var update;
+    console.log("Final Number: " + getFinalNumber);
+
+    if (getFinalNumber != "") {
+        globalMath.push(parseInt(getFinalNumber));
+        console.log("Pushing last number to globalMath : " + globalMath);
+    } else {
+        alert("Please enter a value!");
+    }
+
+    if (displayData != "") {
+        displayData = [];
+    }
+
+
+
+    const answer = globalMath.reduce(sumReducer);
+    document.getElementById("display").innerHTML = answer;
+    console.log("displayData: " + displayData);
+
 }

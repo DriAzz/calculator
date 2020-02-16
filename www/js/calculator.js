@@ -1,93 +1,115 @@
 var displayData = [];
-var sumArray = [];
-var subArray = [];
-var multArray = [];
-var divArray = [];
-var answerHistory = [];
+var globalMath = [];
+var triggerCheck = [];
 
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+//Create Trigger Value (null);
+var trigger;
+
+var buttonMul = document.getElementById("buttonJS12").value;
+var buttonDiv = document.getElementById("buttonJS16").value;
+
+const sumReducer = (accumulator, currentValue) => accumulator + currentValue;
+const subReducer = (accumulator, currentValue) => accumulator - currentValue;
+const multReducer = (accumulator, currentValue) => accumulator * currentValue;
+const divReducer = (accumulator, currentValue) => accumulator / currentValue;
+
 
 function clearDisplay() {
-    console.log(displayData);
-    if (displayData != "") {
+    var checkDisplay = document.getElementById("display").value;
+    if (checkDisplay != "") {
         displayData = [];
-        sumArray = [];
-        subArray = [];
-        multArray = [];
-        divArray = [];
+        globalMath = [];
         document.getElementById("display").innerHTML = displayData;
-        console.log(displayData);
+        console.log("Cleared displayData: " + displayData);
     } else {
-        alert("Display is empty!");
+        alert("Screen is empty!");
     }
 }
 
 function sumNumbers() {
-    //Assigning a value to getSumNumber
-    var getSumNumber = document.getElementById("display").value = displayData.join("");
-    let addSign = "+";
-    sumArray.push(parseInt(getSumNumber));
+    var getNewValue = document.getElementById("display").value = displayData.join("");
+    var buttonAdd = document.getElementById("buttonJS04").value;
+    console.log("New Value: " + getNewValue + " | globalMath: " + globalMath + " | displayData: " + displayData);
 
-    //Adding Logic
-    if (sumArray != "") {
-        
-    }
-    
     if (displayData != "") {
-        
+        displayData = [];
+        globalMath.push(parseInt(getNewValue));
+        console.log("Cleared displayData: " + displayData + " | Added to globalMath: " + globalMath);
     }
 
+    if (globalMath != "") {
+        var sumAnswer = globalMath.reduce(sumReducer);
+        console.log("This is the sum: " + sumAnswer); //Getting the sum;
+        document.getElementById("display").innerHTML = sumAnswer;
+    }
 
-    // //getCurrentValue sets current value from displayData array;
-    // var getCurrentValue = document.getElementById("display").value = displayData.join("");
-    // console.log("Converting displayData array to numbers: " + getCurrentValue);
-
-    // //updating sumArray;
-    // sumArray.push(parseInt(getCurrentValue));
-    // console.log("sumArray: " + sumArray);
-
-    // //Emptying calData array;
-    // displayData = [];
-    // document.getElementById("display").innerHTML = displayData;
+    //Assign trigger to button
+    trigger = buttonAdd;
+    triggerCheck.push(trigger);
+    console.log("trigger array: " + triggerCheck);
 }
 
 function subNumbers() {
+    var getNewValue = document.getElementById("display").value = displayData.join("");
+    console.log(getNewValue);
+    var buttonSub = document.getElementById("buttonJS08").value;
+    console.log("New Value: " + getNewValue + " | globalMath: " + globalMath + " | displayData: " + displayData);
 
-}
+    if (displayData != "") {
+        displayData = [];
+        globalMath.push(parseInt(getNewValue));
+        console.log("Cleared displayData: " + displayData + " | Added to globalMath: " + globalMath);
+    }
 
-function multiNumbers() {
+    if (globalMath != "") {
+        var subAnswer = globalMath.reduce(subReducer);
+        console.log("This is the sum: " + subAnswer); //Getting the sum;
+        document.getElementById("display").innerHTML = subAnswer;
+    }
 
-}
-
-function divNumbers() {
-
+    //Assign trigger to button
+    trigger = buttonSub;
+    triggerCheck.push(trigger);
+    console.log("trigger array: " + triggerCheck);
 }
 
 function equal() {
+    var getFinalNumber = document.getElementById("display").value = displayData.join("");  //const or let will fix var update;
+    console.log("Final Number: " + getFinalNumber);
 
+    if (getFinalNumber != "") {
+        globalMath.push(parseInt(getFinalNumber));
+        console.log("Pushing last number to globalMath : " + globalMath);
+    } else {
+        alert("Please enter a value!");
+    }
 
+    if (displayData != "") {
+        displayData = [];
+    }
 
-    // //Get final value from display div;
-    // var getFinalNumber = document.getElementById("display").value = displayData.join("");
+    last = function (array, n) {
+        if (array == null)
+            return void 0;
+        if (n == null)
+            return array[array.length - 1];
+        return array.slice(Math.max(array.length - n, 0));
+    };
 
-    // if (sumArray != "") {
-    //     sumArray.push(parseInt(getFinalNumber));
-    //     var getAnswer = sumArray.reduce(reducer);
-    //     sumArray = [];
-    //     console.log("sumArray: " + sumArray);
-    //     console.log("Answer: " + getAnswer);
-    // }
+    console.log("Last value in triggerArray: " + last(triggerCheck));
+    var check = last(triggerCheck);
 
-    // if (sumArray == "") {
-    //     sumArray.push(parseInt(getAnswer));
-    //     console.log("sumArray new value: " + sumArray);
-    // }
+    if (check == "+") {
+        //displayData get it
+        
+    }
 
-    // if (displayData != "") {
-    //     displayData = [];
-    //     console.log("displayData: " + displayData);
-    //     displayData.push(parseInt(getAnswer));
-    // }
+    if (check == "-") {
+        // subNumbers();
+    }
 
-    // document.getElementById("display").innerHTML = getAnswer;
+    // const answer = globalMath.reduce(sumReducer);
+    // document.getElementById("display").innerHTML = answer;
+    // console.log("displayData: " + displayData);
+
 }
