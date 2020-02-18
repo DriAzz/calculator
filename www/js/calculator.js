@@ -1,94 +1,118 @@
 var displayData = [];
-var sumArray = [];
-var subArray = [];
-var divideArray = [];
-var multiplicationArray = [];
-
 var getFirstValue;
+var getSecondValue;
 var getFinalValue;
 var check;
 var answer;
+var i = 0;
 
 
 function sumNumbers() {
-    // const sumReducer = (accumulator, currentValue) => accumulator + currentValue;
-    getFirstValue = document.getElementById("display").value = displayData.join("");
-    // sumArray.push(parseInt(getFirstValue));
     check = "+";
-    // console.log("First Value: " + getFirstValue + "||" + "sumArray: " + sumArray);
+    i++;  //Incrementing
+
+    if (i == 1) {
+        getFirstValue = document.getElementById("display").value = displayData.join("");
+        console.log("First Value: " + getFirstValue);
+    }
+
+    if (i == 2) {
+        getSecondValue = document.getElementById("display").value = displayData.join("");
+        var sum = parseInt(getFirstValue) + parseInt(getSecondValue);
+        console.log("Second Value: " + getSecondValue + " | " + "Sum: " + sum);
+        document.getElementById("display").innerHTML = sum;
+        getFirstValue = sum;
+        i--;
+    }
 
     if (displayData != "") {
         displayData = [];
         console.log(getFirstValue + check);
     }
 
-    // if (sumArray != "") {
-    //     answer = sumArray.reduce(sumReducer);
-    //     getFirstValue = answer;
-    //     document.getElementById("display").innerHTML = getFirstValue;
-    //     console.log("Increment Answer: " + answer);
-    //     displayData = [];
-    // }
+    console.log(i);
 }
 
 function subNumbers() {
-    const subReducer = (accumulator, currentValue) => accumulator - currentValue;
-    getFirstValue = document.getElementById("display").value = displayData.join("");
-    subArray.push(parseInt(getFirstValue));
     check = "-";
-    console.log("First Value: " + getFirstValue + "||" + "subArray: " + subArray);
+    i++;  //Incrementing
+
+    if (i == 1) {
+        getFirstValue = document.getElementById("display").value = displayData.join("");
+        console.log("First Value: " + getFirstValue);
+    }
+
+    if (i == 2) {
+        getSecondValue = document.getElementById("display").value = displayData.join("");
+        var sub = parseInt(getFirstValue) - parseInt(getSecondValue);
+        console.log("Second Value: " + getSecondValue + " | " + "Sub: " + sub);
+        document.getElementById("display").innerHTML = sub;
+        getFirstValue = sub;
+        i--;
+    }
 
     if (displayData != "") {
         displayData = [];
         console.log(getFirstValue + check);
     }
 
-    if (subArray != "") {
-        answer = subArray.reduce(subReducer);
-        getFirstValue = answer;
-        document.getElementById("display").innerHTML = getFirstValue;
-        console.log("Increment Answer: " + answer);
-        displayData = [];
-    }
+    console.log(i);
 }
 
 function multiplyNumbers() {
-    const multReducer = (accumulator, currentValue) => accumulator * currentValue;
-    getFirstValue = document.getElementById("display").value = displayData.join("");
-    multiplicationArray.push(parseInt(getFirstValue));
-    check = "*";
-    console.log("First Value: " + getFirstValue + "||" + "multArray: " + multiplicationArray);
+    check = "x";
+    i++;  //Incrementing
+
+    if (i == 1) {
+        getFirstValue = document.getElementById("display").value = displayData.join("");
+        console.log("First Value: " + getFirstValue);
+    }
+
+    if (i == 2) {
+        getSecondValue = document.getElementById("display").value = displayData.join("");
+        var mult = parseInt(getFirstValue) * parseInt(getSecondValue);
+        console.log("Second Value: " + getSecondValue + " | " + "Multiply: " + mult);
+        document.getElementById("display").innerHTML = mult;
+        getFirstValue = mult;
+        i--;
+    }
 
     if (displayData != "") {
         displayData = [];
         console.log(getFirstValue + check);
     }
 
-    if (sumArray != "") {
-        answer = multiplicationArray.reduce(multReducer);
-        getFirstValue = answer;
-        document.getElementById("display").innerHTML = getFirstValue;
-        console.log("Increment Answer: " + answer);
-        displayData = [];
-    }
+    console.log(i);
 }
 
 function divideNumbers() {
-    getFirstValue = document.getElementById("display").value = displayData.join("");
     check = "/";
-    console.log("First Value: " + getFirstValue);
+    i++;  //Incrementing
+
+    if (i == 1) {
+        getFirstValue = document.getElementById("display").value = displayData.join("");
+        console.log("First Value: " + getFirstValue);
+    }
+
+    if (i == 2) {
+        getSecondValue = document.getElementById("display").value = displayData.join("");
+        var div = parseInt(getFirstValue) / parseInt(getSecondValue);
+        console.log("Second Value: " + getSecondValue + " | " + "Divide: " + div);
+        document.getElementById("display").innerHTML = div;
+        getFirstValue = div;
+        i--;
+    }
+
     if (displayData != "") {
         displayData = [];
-        console.log(check)
+        console.log(getFirstValue + check);
     }
+
+    console.log(i);
 }
 
 function equal() {
-    sumArray = [];
-    subArray = [];
-    multiplicationArray = [];
-    divideArray = [];
-
+    i = 0;
     getFinalValue = document.getElementById("display").value = displayData.join("");
     console.log(getFinalValue);
 

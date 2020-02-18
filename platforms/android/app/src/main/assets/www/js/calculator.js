@@ -1,65 +1,154 @@
 var displayData = [];
-var globalMath = [];
+// var sumArray = [];
+// var subArray = [];
+// var divideArray = [];
+// var multiplicationArray = [];
 
-var buttonAdd = document.getElementById("buttonJS04").value;
-var buttonSub = document.getElementById("buttonJS08").value;
-var buttonMul = document.getElementById("buttonJS12").value;
-var buttonDiv = document.getElementById("buttonJS16").value;
+var getFirstValue;
+var getFinalValue;
+var check;
+var answer;
 
-const sumReducer = (accumulator, currentValue) => accumulator + currentValue;
-const subReducer = (accumulator, currentValue) => accumulator - currentValue;
-const multReducer = (accumulator, currentValue) => accumulator * currentValue;
-const divReducer = (accumulator, currentValue) => accumulator / currentValue;
-
-
-function clearDisplay() {
-    var checkDisplay = document.getElementById("display").value;
-    if (checkDisplay != "") {
-        displayData = [];
-        globalMath = [];
-        document.getElementById("display").innerHTML = displayData;
-        console.log("Cleared displayData: " + displayData);
-    } else {
-        alert("Screen is empty!");
-    }
-}
 
 function sumNumbers() {
-    var getNewValue = document.getElementById("display").value = displayData.join("");
-    console.log("New Value: " + getNewValue + " | globalMath: " + globalMath + " | displayData: " + displayData);
+    // const sumReducer = (accumulator, currentValue) => accumulator + currentValue;
+    getFirstValue = document.getElementById("display").value = displayData.join("");
+    // sumArray.push(parseInt(getFirstValue));
+    check = "+";
+    // console.log("First Value: " + getFirstValue + "||" + "sumArray: " + sumArray);
 
     if (displayData != "") {
         displayData = [];
-        globalMath.push(parseInt(getNewValue));
-        console.log("Cleared displayData: " + displayData + " | Added to globalMath: " + globalMath);
+        console.log(getFirstValue + check);
     }
 
-    if (globalMath != "") {
-        var sumAnswer = globalMath.reduce(sumReducer);
-        console.log("This is the sum: " + sumAnswer); //Getting the sum;
-        document.getElementById("display").innerHTML = sumAnswer;
+    // if (sumArray != "") {
+    //     answer = sumArray.reduce(sumReducer);
+    //     getFirstValue = answer;
+    //     document.getElementById("display").innerHTML = getFirstValue;
+    //     console.log("Increment Answer: " + answer);
+    //     displayData = [];
+    // }
+}
+
+function subNumbers() {
+    const subReducer = (accumulator, currentValue) => accumulator - currentValue;
+    getFirstValue = document.getElementById("display").value = displayData.join("");
+    subArray.push(parseInt(getFirstValue));
+    check = "-";
+    console.log("First Value: " + getFirstValue + "||" + "subArray: " + subArray);
+
+    if (displayData != "") {
+        displayData = [];
+        console.log(getFirstValue + check);
+    }
+
+    if (subArray != "") {
+        answer = subArray.reduce(subReducer);
+        getFirstValue = answer;
+        document.getElementById("display").innerHTML = getFirstValue;
+        console.log("Increment Answer: " + answer);
+        displayData = [];
+    }
+}
+
+function multiplyNumbers() {
+    const multReducer = (accumulator, currentValue) => accumulator * currentValue;
+    getFirstValue = document.getElementById("display").value = displayData.join("");
+    multiplicationArray.push(parseInt(getFirstValue));
+    check = "*";
+    console.log("First Value: " + getFirstValue + "||" + "multArray: " + multiplicationArray);
+
+    if (displayData != "") {
+        displayData = [];
+        console.log(getFirstValue + check);
+    }
+
+    if (sumArray != "") {
+        answer = multiplicationArray.reduce(multReducer);
+        getFirstValue = answer;
+        document.getElementById("display").innerHTML = getFirstValue;
+        console.log("Increment Answer: " + answer);
+        displayData = [];
+    }
+}
+
+function divideNumbers() {
+    getFirstValue = document.getElementById("display").value = displayData.join("");
+    check = "/";
+    console.log("First Value: " + getFirstValue);
+    if (displayData != "") {
+        displayData = [];
+        console.log(check)
     }
 }
 
 function equal() {
-    var getFinalNumber = document.getElementById("display").value = displayData.join("");  //const or let will fix var update;
-    console.log("Final Number: " + getFinalNumber);
+    sumArray = [];
+    subArray = [];
+    multiplicationArray = [];
+    divideArray = [];
 
-    if (getFinalNumber != "") {
-        globalMath.push(parseInt(getFinalNumber));
-        console.log("Pushing last number to globalMath : " + globalMath);
-    } else {
-        alert("Please enter a value!");
-    }
+    getFinalValue = document.getElementById("display").value = displayData.join("");
+    console.log(getFinalValue);
 
-    if (displayData != "") {
+    if (check == "+") {
+        answer = parseInt(getFirstValue) + parseInt(getFinalValue);
+        console.log("Answer: " + answer);
+        document.getElementById("display").innerHTML = answer;
+        check = "";
         displayData = [];
     }
 
+    if (displayData == "") {
+        displayData.push(answer);
+    }
 
+    if (check == "-") {
+        answer = parseInt(getFirstValue) - parseInt(getFinalValue);
+        document.getElementById("display").innerHTML = answer;
+        console.log("Answer: " + answer);
+        check = "";
+        displayData = [];
+        getFirstValue = answer;
+    }
 
-    const answer = globalMath.reduce(sumReducer);
-    document.getElementById("display").innerHTML = answer;
-    console.log("displayData: " + displayData);
+    if (displayData == "") {
+        displayData.push(answer);
+    }
 
+    if (check == "*") {
+        answer = parseInt(getFirstValue) * parseInt(getFinalValue);
+        document.getElementById("display").innerHTML = answer;
+        console.log("Answer: " + answer);
+        check = "";
+        displayData = [];
+        getFirstValue = answer;
+    }
+
+    if (displayData == "") {
+        displayData.push(answer);
+    }
+
+    if (check == "/") {
+        answer = parseInt(getFirstValue) / parseInt(getFinalValue);
+        document.getElementById("display").innerHTML = answer;
+        console.log("Answer: " + answer);
+        check = "";
+        displayData = [];
+        getFirstValue = answer;
+    }
+
+    if (displayData == "") {
+        displayData.push(answer);
+    }
+}
+
+function clearScreen() {
+    if (displayData != "") {
+        displayData = [];
+        document.getElementById("display").innerHTML = displayData;
+    } else {
+        alert("Screen is not clear!");
+    }
 }
